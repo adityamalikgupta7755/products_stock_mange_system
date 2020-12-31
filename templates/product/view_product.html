@@ -1,0 +1,38 @@
+{% extends 'product/product.html' %}
+
+{% block content %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Product Id</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product Brand_name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Sub_Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quntity</th>
+                <th scope="col">action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in product %}
+            <tr>
+                <th scope="row">{{product.id}}</th>
+                <td>{{product.product_name|upper}}</td>
+                <td>{{product.product_brandname|upper}}</td>
+                <td>{{product.category|upper}}</td>
+                <td>{{product.sub_category|upper}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.qty}}</td>
+                <td><a class="btn btn-primary btn-sm" href="update/{{product.id}}" role="button">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="delete/{{product.id}}" role="button">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}
